@@ -1,0 +1,836 @@
+/* Styles spécifiques aux vues */
+
+/* Residents */
+.residents-container {
+  display: flex;
+  background: transparent;
+  padding: 0;
+  min-height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.resident-sidebar {
+  width: 200px;
+  background: #121212;
+  border-right: 1px solid #333;
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 200px;
+  z-index: 900;
+  transition: left 0.3s ease;
+}
+
+main.main-content.sidebar-closed .resident-sidebar {
+  left: 50px;
+}
+
+.sidebar-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 15px;
+  font-size: 14px;
+  color: #e0e0e0;
+  margin-bottom: 16px;
+}
+
+.sidebar-title .icon {
+  width: 20px;
+  height: 20px;
+  color: #b0b0b0;
+  flex-shrink: 0;
+}
+
+.sidebar-title span {
+  display: inline-block;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 8px 8px 8px 32px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background: #2a2a2a;
+  color: #e0e0e0;
+  font-size: 14px;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.search-bar .search-icon {
+  width: 20px;
+  height: 20px;
+  color: #b0b0b0;
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.add-resident-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.add-resident-button button.action-button {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.add-resident-button button.action-button:hover {
+  background: #333;
+}
+
+.add-resident-button button.action-button svg.icon {
+  width: 20px;
+  height: 20px;
+  color: #b0b0b0;
+}
+
+.add-resident-button button.action-button:hover svg.icon {
+  color: #e0e0e0;
+}
+
+.resident-list {
+  list-style: none;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.resident-item {
+  padding: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #b0b0b0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.resident-item:hover {
+  background: #333;
+  color: #e0e0e0;
+}
+
+.resident-item.active {
+  background: #444;
+  color: #e0e0e0;
+}
+
+.resident-card {
+  background: #2a2a2a;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-header h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #e0e0e0;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.card-details p {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #b0b0b0;
+}
+
+.card-details p strong {
+  color: #e0e0e0;
+}
+
+.card-details .separator {
+  border-bottom: 1px solid #333;
+  margin: 16px 0;
+}
+
+.card-section {
+  margin-top: 16px;
+}
+
+.card-section h4 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #e0e0e0;
+  margin-bottom: 8px;
+}
+
+.data-list {
+  list-style: none;
+}
+
+.data-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 14px;
+  color: #b0b0b0;
+  border-bottom: 1px solid #333;
+}
+
+.action-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.action-button svg {
+  width: 20px;
+  height: 20px;
+  color: #b0b0b0;
+}
+
+.action-button:hover svg {
+  color: #e0e0e0;
+}
+
+/* Add/Edit Resident */
+.add-resident-container,
+.edit-resident-container {
+  max-width: 400px;
+  width: 100%;
+  background: #1e1e1e;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  margin: 0 auto;
+}
+
+.add-resident-container h2,
+.edit-resident-container h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #e0e0e0;
+}
+
+.input-with-clear {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-with-clear input,
+.input-with-clear select {
+  width: 100%;
+  padding: 10px 36px 10px 36px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background: #2a2a2a;
+  color: #e0e0e0;
+  font-size: 14px;
+}
+
+.input-with-clear select:focus,
+.input-with-clear input:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.input-with-clear .icon {
+  width: 20px;
+  height: 20px;
+  color: #b0b0b0;
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.clear-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-button svg {
+  width: 20px;
+  height: 20px;
+  color: #b0b0b0;
+}
+
+.clear-button:hover svg {
+  color: #e0e0e0;
+}
+
+.suggestions {
+  list-style: none;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 4px;
+  position: absolute;
+  width: calc(100% - 16px);
+  z-index: 1000;
+}
+
+.suggestions li {
+  padding: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #b0b0b0;
+}
+
+.suggestions li:hover {
+  background: #333;
+  color: #e0e0e0;
+}
+
+.form-group {
+  position: relative;
+}
+
+/* Add/Edit Appointment */
+.add-appointment-container,
+.edit-appointment-container {
+  max-width: 400px;
+  width: 100%;
+  background: #1e1e1e;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  margin: 0 auto;
+}
+
+.add-appointment-container h2,
+.edit-appointment-container h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #e0e0e0;
+}
+
+/* Add/Edit Medication */
+.add-medication-container,
+.edit-medication-container {
+  max-width: 400px;
+  width: 100%;
+  background: #1e1e1e;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  margin: 0 auto;
+}
+
+.add-medication-container h2,
+.edit-medication-container h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #e0e0e0;
+}
+
+/* Appointments */
+.appointments-container {
+  max-width: 100%;
+  background: transparent;
+  padding: 24px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.appointments-container h2 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #e0e0e0;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  margin: 0 auto 16px auto;
+}
+
+.today-button {
+  background: transparent !important;
+  color: #e0e0e0 !important;
+  border: none !important;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+}
+
+.today-button:hover {
+  background: transparent !important;
+}
+
+.nav-button {
+  background: transparent !important;
+  color: #e0e0e0 !important;
+  border: none !important;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.nav-button svg {
+  width: 20px;
+  height: 20px;
+  color: #e0e0e0 !important;
+}
+
+.nav-button:hover {
+  background: transparent !important;
+}
+
+.add-appointment-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.add-appointment-button button.action-button {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.add-appointment-button button.action-button:hover {
+  background: #333;
+}
+
+.add-appointment-button button.action-button svg.icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Calendar */
+.rbc-calendar {
+  background: transparent;
+  padding: 0;
+  border: none !important;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.rbc-toolbar {
+  display: none !important;
+}
+
+.rbc-month-view {
+  background: transparent;
+  border: none !important;
+  width: 100%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.rbc-month-row {
+  border-bottom: 1px solid #333 !important;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.rbc-row-bg {
+  border: none !important;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.rbc-off-range-bg {
+  background: #1e1e1e !important; /* Même couleur que le fond de l'application */
+}
+
+.rbc-header {
+  border-bottom: 1px solid #333 !important;
+  color: #e0e0e0;
+  font-size: 14px;
+  padding: 8px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.rbc-date-cell {
+  color: #e0e0e0;
+  font-size: 14px;
+  padding: 8px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.rbc-date-cell > span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rbc-off-range {
+  color: #1e1e1e !important; /* Fondre les chiffres dans le fond grisé */
+}
+
+.rbc-day-bg {
+  background: transparent;
+  border: none !important;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  height: 100%;
+}
+
+.rbc-day-bg.rbc-today {
+  background: #555 !important;
+}
+
+.rbc-event {
+  background: none;
+  border: none;
+  position: relative;
+  color: #e0e0e0;
+  font-size: 12px;
+  padding: 2px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Supprime le surlignage au passage de la souris avec une spécificité accrue */
+.appointments-container .rbc-day-bg:hover {
+  background: transparent !important;
+}
+
+.appointments-container .rbc-event:hover {
+  background: transparent !important;
+}
+
+.appointment-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: #2a2a2a;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 100%;
+  color: #e0e0e0;
+  position: relative;
+}
+
+.popup-content h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.popup-content p {
+  font-size: 14px;
+  color: #b0b0b0;
+  margin-bottom: 8px;
+}
+
+.popup-content p strong {
+  color: #e0e0e0;
+}
+
+.popup-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button svg {
+  width: 20px;
+  height: 20px;
+  color: #b0b0b0;
+}
+
+.close-button:hover svg {
+  color: #e0e0e0;
+}
+
+/* Medications */
+.medications-container {
+  max-width: 100%;
+  background: #1e1e1e;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.medications-container h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #e0e0e0;
+}
+
+.chat-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.chat-toggle {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.chat-toggle:hover {
+  background-color: #1557b0;
+}
+
+.chat-box {
+  display: none;
+  width: 300px;
+  height: 400px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-container.open .chat-box {
+  display: flex;
+}
+
+.messages {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+}
+
+.messages .sent {
+  text-align: right;
+  margin: 5px 0;
+  background-color: #e3f2fd;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.messages .received {
+  text-align: left;
+  margin: 5px 0;
+  background-color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.message-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.message-input input {
+  flex-grow: 1;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+.message-input button.send-button {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.message-input button.send-button:hover {
+  background-color: #1557b0;
+}
+
+.alert.error {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+
+
+/* Amélioration de l'input de sélection du résident */
+.enhanced-select {
+  position: relative;
+  width: 100%;
+}
+
+.enhanced-select input {
+  width: 100%;
+  padding: 12px 40px 12px 12px;
+  border: 2px solid #444;
+  border-radius: 6px;
+  background: #2a2a2a;
+  color: #e0e0e0;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.enhanced-select input:focus {
+  border-color: #1a73e8;
+  outline: none;
+}
+
+.enhanced-select .clear-button {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enhanced-select .clear-button svg {
+  color: #b0b0b0;
+}
+
+.enhanced-select .clear-button:hover svg {
+  color: #e0e0e0;
+}
+
+.enhanced-suggestions {
+  list-style: none;
+  background: #2a2a2a;
+  border: 2px solid #444;
+  border-radius: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 5px;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.enhanced-suggestions li {
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #e0e0e0;
+  transition: background 0.2s ease;
+}
+
+.enhanced-suggestions li:hover {
+  background: #333;
+}

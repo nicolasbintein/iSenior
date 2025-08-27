@@ -1,0 +1,9 @@
+from .auth import router as auth_router
+from .users import router as users_router
+from .residents import router as residents_router
+from .appointments import router as appointments_router
+from .medications import router as medications_router
+from .chat import router as chat_router
+from .rooms import router as rooms_router
+from .mutuelles import router as mutuelles_router
+from .medecins import router as medecins_router
